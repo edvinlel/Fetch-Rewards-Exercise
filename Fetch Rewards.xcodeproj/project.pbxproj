@@ -13,6 +13,9 @@
 		06DA1D74258C039C00AD2BD1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 06DA1D72258C039C00AD2BD1 /* Main.storyboard */; };
 		06DA1D76258C039D00AD2BD1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 06DA1D75258C039D00AD2BD1 /* Assets.xcassets */; };
 		06DA1D79258C039D00AD2BD1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 06DA1D77258C039D00AD2BD1 /* LaunchScreen.storyboard */; };
+		06DA1D83258C944100AD2BD1 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06DA1D82258C944100AD2BD1 /* HomeView.swift */; };
+		06DA1D88258CA83400AD2BD1 /* Extension+UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06DA1D87258CA83400AD2BD1 /* Extension+UIView.swift */; };
+		06F6E193258E078B00CD48CC /* EventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06F6E192258E078B00CD48CC /* EventCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +27,9 @@
 		06DA1D75258C039D00AD2BD1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		06DA1D78258C039D00AD2BD1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		06DA1D7A258C039D00AD2BD1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		06DA1D82258C944100AD2BD1 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		06DA1D87258CA83400AD2BD1 /* Extension+UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIView.swift"; sourceTree = "<group>"; };
+		06F6E192258E078B00CD48CC /* EventCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +62,58 @@
 		06DA1D6B258C039C00AD2BD1 /* Fetch Rewards */ = {
 			isa = PBXGroup;
 			children = (
+				06F6E190258E074500CD48CC /* Views */,
+				06DA1D84258C957500AD2BD1 /* Extensions */,
 				06DA1D6C258C039C00AD2BD1 /* AppDelegate.swift */,
 				06DA1D6E258C039C00AD2BD1 /* SceneDelegate.swift */,
-				06DA1D70258C039C00AD2BD1 /* HomeViewController.swift */,
+				06DA1D81258C942B00AD2BD1 /* View Controllers */,
 				06DA1D72258C039C00AD2BD1 /* Main.storyboard */,
 				06DA1D75258C039D00AD2BD1 /* Assets.xcassets */,
 				06DA1D77258C039D00AD2BD1 /* LaunchScreen.storyboard */,
 				06DA1D7A258C039D00AD2BD1 /* Info.plist */,
 			);
 			path = "Fetch Rewards";
+			sourceTree = "<group>";
+		};
+		06DA1D80258C942400AD2BD1 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				06DA1D70258C039C00AD2BD1 /* HomeViewController.swift */,
+				06DA1D82258C944100AD2BD1 /* HomeView.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		06DA1D81258C942B00AD2BD1 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				06DA1D80258C942400AD2BD1 /* Home */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		06DA1D84258C957500AD2BD1 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				06DA1D87258CA83400AD2BD1 /* Extension+UIView.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		06F6E190258E074500CD48CC /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				06F6E191258E075300CD48CC /* EventCell */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		06F6E191258E075300CD48CC /* EventCell */ = {
+			isa = PBXGroup;
+			children = (
+				06F6E192258E078B00CD48CC /* EventCell.swift */,
+			);
+			path = EventCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -83,6 +132,8 @@
 			dependencies = (
 			);
 			name = "Fetch Rewards";
+			packageProductDependencies = (
+			);
 			productName = "Fetch Rewards";
 			productReference = 06DA1D69258C039C00AD2BD1 /* Fetch Rewards.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +162,8 @@
 				Base,
 			);
 			mainGroup = 06DA1D60258C039C00AD2BD1;
+			packageReferences = (
+			);
 			productRefGroup = 06DA1D6A258C039C00AD2BD1 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -139,7 +192,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				06DA1D71258C039C00AD2BD1 /* HomeViewController.swift in Sources */,
+				06DA1D83258C944100AD2BD1 /* HomeView.swift in Sources */,
+				06DA1D88258CA83400AD2BD1 /* Extension+UIView.swift in Sources */,
 				06DA1D6D258C039C00AD2BD1 /* AppDelegate.swift in Sources */,
+				06F6E193258E078B00CD48CC /* EventCell.swift in Sources */,
 				06DA1D6F258C039C00AD2BD1 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
