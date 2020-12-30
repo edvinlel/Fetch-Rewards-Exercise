@@ -14,8 +14,6 @@ import UIKit
 class HomeViewController: UIViewController {
     
     // MARK: Properties
-
-    /// Initialize uiview with properties and constraints for view controller
     weak var homeView: HomeView! { return self.view as? HomeView }
     
     // MARK: View Life Cycle
@@ -26,31 +24,10 @@ class HomeViewController: UIViewController {
         self.view = HomeView()
         
         homeView.searchBar.delegate = self
+        homeView.eventTableView.register(EventCell.self, forCellReuseIdentifier: EventCell.reuseIdentifier)
+        homeView.eventTableView.delegate = self
+        homeView.eventTableView.dataSource = self
     }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
-        for subView in homeView.searchBar.subviews  {
-            for subsubView in subView.subviews  {
-                if let _ = subsubView as? UITextInputTraits {
-                    let textField = subsubView as! UITextField
-                    var bounds: CGRect
-                    bounds = textField.frame
-
-                    //2. Shorter textfield in height
-                    bounds.size.height = 40
-                    textField.bounds = bounds
-
-                    //3. Textfield to have less corner radious
-                    textField.layer.cornerRadius = 5 //Probably you can play with this and see the changes.
-                    textField.clipsToBounds = true
-                }
-                
-            }
-        }
-    }
-    
 
 }
 
@@ -60,5 +37,27 @@ extension HomeViewController: UISearchBarDelegate {
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searchBar.text = ""
         searchBar.endEditing(true)
+    }
+}
+
+extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 8
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: EventCell.reuseIdentifier, for: indexPath) as! EventCell
+        cell.eventImageView.image = UIImage(named: "camping")
+        
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let eventViewController = EventViewController()
+        navigationController?.pushViewController(eventViewController, animated: true)
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 300
     }
 }
