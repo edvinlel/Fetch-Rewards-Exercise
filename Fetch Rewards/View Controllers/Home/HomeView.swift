@@ -56,7 +56,7 @@ class HomeView: UIView {
         
         /// Event TableView
         NSLayoutConstraint.activate([
-            eventTableView.topAnchor.constraint(equalTo: searchBar.bottomAnchor, constant: 20),
+            eventTableView.topAnchor.constraint(equalTo: searchBar.bottomAnchor, constant: 10),
             eventTableView.leftAnchor.constraint(equalTo: leftAnchor, constant: 0),
             eventTableView.rightAnchor.constraint(equalTo: rightAnchor, constant: 0),
             eventTableView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: 0)

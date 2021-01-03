@@ -11,6 +11,11 @@
 		0630AACB25900C4600DF7667 /* Extension+UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0630AACA25900C4600DF7667 /* Extension+UIColor.swift */; };
 		0630AACF259D2BDF00DF7667 /* EventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0630AACE259D2BDF00DF7667 /* EventViewController.swift */; };
 		0630AAD3259D2BEE00DF7667 /* EventView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0630AAD2259D2BEE00DF7667 /* EventView.swift */; };
+		0630AAD8259D50EE00DF7667 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0630AAD7259D50EE00DF7667 /* NetworkManager.swift */; };
+		0630AADD259D520600DF7667 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0630AADC259D520600DF7667 /* Event.swift */; };
+		0630AAE1259DD02700DF7667 /* Venue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0630AAE0259DD02700DF7667 /* Venue.swift */; };
+		0630AB0025A0540D00DF7667 /* AlphaLayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0630AAFF25A0540D00DF7667 /* AlphaLayerView.swift */; };
+		0630AB0425A155C900DF7667 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0630AB0325A155C900DF7667 /* GoogleService-Info.plist */; };
 		06DA1D6D258C039C00AD2BD1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06DA1D6C258C039C00AD2BD1 /* AppDelegate.swift */; };
 		06DA1D6F258C039C00AD2BD1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06DA1D6E258C039C00AD2BD1 /* SceneDelegate.swift */; };
 		06DA1D71258C039C00AD2BD1 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06DA1D70258C039C00AD2BD1 /* HomeViewController.swift */; };
@@ -20,6 +25,7 @@
 		06DA1D83258C944100AD2BD1 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06DA1D82258C944100AD2BD1 /* HomeView.swift */; };
 		06DA1D88258CA83400AD2BD1 /* Extension+UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06DA1D87258CA83400AD2BD1 /* Extension+UIView.swift */; };
 		06F6E193258E078B00CD48CC /* EventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06F6E192258E078B00CD48CC /* EventCell.swift */; };
+		3440C3B0A98E7B371B692786 /* Pods_Fetch_Rewards.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8A213E059A8E9D12023B0DE /* Pods_Fetch_Rewards.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +33,11 @@
 		0630AACA25900C4600DF7667 /* Extension+UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIColor.swift"; sourceTree = "<group>"; };
 		0630AACE259D2BDF00DF7667 /* EventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventViewController.swift; sourceTree = "<group>"; };
 		0630AAD2259D2BEE00DF7667 /* EventView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventView.swift; sourceTree = "<group>"; };
+		0630AAD7259D50EE00DF7667 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		0630AADC259D520600DF7667 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
+		0630AAE0259DD02700DF7667 /* Venue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Venue.swift; sourceTree = "<group>"; };
+		0630AAFF25A0540D00DF7667 /* AlphaLayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlphaLayerView.swift; sourceTree = "<group>"; };
+		0630AB0325A155C900DF7667 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		06DA1D69258C039C00AD2BD1 /* Fetch Rewards.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Fetch Rewards.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		06DA1D6C258C039C00AD2BD1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		06DA1D6E258C039C00AD2BD1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -38,6 +49,9 @@
 		06DA1D82258C944100AD2BD1 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		06DA1D87258CA83400AD2BD1 /* Extension+UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIView.swift"; sourceTree = "<group>"; };
 		06F6E192258E078B00CD48CC /* EventCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCell.swift; sourceTree = "<group>"; };
+		42BAF41AD3D426CD88432E19 /* Pods-Fetch Rewards.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fetch Rewards.debug.xcconfig"; path = "Target Support Files/Pods-Fetch Rewards/Pods-Fetch Rewards.debug.xcconfig"; sourceTree = "<group>"; };
+		D9E2387A9D22F7D4EA1EE1DC /* Pods-Fetch Rewards.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fetch Rewards.release.xcconfig"; path = "Target Support Files/Pods-Fetch Rewards/Pods-Fetch Rewards.release.xcconfig"; sourceTree = "<group>"; };
+		E8A213E059A8E9D12023B0DE /* Pods_Fetch_Rewards.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Fetch_Rewards.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +59,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3440C3B0A98E7B371B692786 /* Pods_Fetch_Rewards.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -60,11 +75,30 @@
 			path = Event;
 			sourceTree = "<group>";
 		};
+		0630AAD6259D50D500DF7667 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				0630AAD7259D50EE00DF7667 /* NetworkManager.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		0630AADB259D51C300DF7667 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				0630AADC259D520600DF7667 /* Event.swift */,
+				0630AAE0259DD02700DF7667 /* Venue.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		06DA1D60258C039C00AD2BD1 = {
 			isa = PBXGroup;
 			children = (
 				06DA1D6B258C039C00AD2BD1 /* Fetch Rewards */,
 				06DA1D6A258C039C00AD2BD1 /* Products */,
+				F9D1FA0A595ABC6A866DB201 /* Pods */,
+				74F047CBC905160A1802A8AA /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -79,6 +113,8 @@
 		06DA1D6B258C039C00AD2BD1 /* Fetch Rewards */ = {
 			isa = PBXGroup;
 			children = (
+				0630AADB259D51C300DF7667 /* Model */,
+				0630AAD6259D50D500DF7667 /* Network */,
 				06DA1D81258C942B00AD2BD1 /* View Controllers */,
 				06F6E190258E074500CD48CC /* Views */,
 				06DA1D84258C957500AD2BD1 /* Extensions */,
@@ -88,6 +124,7 @@
 				06DA1D75258C039D00AD2BD1 /* Assets.xcassets */,
 				06DA1D77258C039D00AD2BD1 /* LaunchScreen.storyboard */,
 				06DA1D7A258C039D00AD2BD1 /* Info.plist */,
+				0630AB0325A155C900DF7667 /* GoogleService-Info.plist */,
 			);
 			path = "Fetch Rewards";
 			sourceTree = "<group>";
@@ -104,8 +141,8 @@
 		06DA1D81258C942B00AD2BD1 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				0630AACD259D2BC800DF7667 /* Event */,
 				06DA1D80258C942400AD2BD1 /* Home */,
+				0630AACD259D2BC800DF7667 /* Event */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -123,6 +160,7 @@
 		06F6E190258E074500CD48CC /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				0630AAFF25A0540D00DF7667 /* AlphaLayerView.swift */,
 				06F6E191258E075300CD48CC /* EventCell */,
 			);
 			path = Views;
@@ -136,6 +174,24 @@
 			path = EventCell;
 			sourceTree = "<group>";
 		};
+		74F047CBC905160A1802A8AA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E8A213E059A8E9D12023B0DE /* Pods_Fetch_Rewards.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F9D1FA0A595ABC6A866DB201 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				42BAF41AD3D426CD88432E19 /* Pods-Fetch Rewards.debug.xcconfig */,
+				D9E2387A9D22F7D4EA1EE1DC /* Pods-Fetch Rewards.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -143,17 +199,17 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 06DA1D7D258C039D00AD2BD1 /* Build configuration list for PBXNativeTarget "Fetch Rewards" */;
 			buildPhases = (
+				73E69573122F007F8F514202 /* [CP] Check Pods Manifest.lock */,
 				06DA1D65258C039C00AD2BD1 /* Sources */,
 				06DA1D66258C039C00AD2BD1 /* Frameworks */,
 				06DA1D67258C039C00AD2BD1 /* Resources */,
+				7A656C313E1F51055D00D794 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = "Fetch Rewards";
-			packageProductDependencies = (
-			);
 			productName = "Fetch Rewards";
 			productReference = 06DA1D69258C039C00AD2BD1 /* Fetch Rewards.app */;
 			productType = "com.apple.product-type.application";
@@ -182,8 +238,6 @@
 				Base,
 			);
 			mainGroup = 06DA1D60258C039C00AD2BD1;
-			packageReferences = (
-			);
 			productRefGroup = 06DA1D6A258C039C00AD2BD1 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -199,12 +253,55 @@
 			buildActionMask = 2147483647;
 			files = (
 				06DA1D79258C039D00AD2BD1 /* LaunchScreen.storyboard in Resources */,
+				0630AB0425A155C900DF7667 /* GoogleService-Info.plist in Resources */,
 				06DA1D76258C039D00AD2BD1 /* Assets.xcassets in Resources */,
 				06DA1D74258C039C00AD2BD1 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		73E69573122F007F8F514202 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Fetch Rewards-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7A656C313E1F51055D00D794 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Fetch Rewards/Pods-Fetch Rewards-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Fetch Rewards/Pods-Fetch Rewards-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Fetch Rewards/Pods-Fetch Rewards-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		06DA1D65258C039C00AD2BD1 /* Sources */ = {
@@ -215,11 +312,15 @@
 				06DA1D71258C039C00AD2BD1 /* HomeViewController.swift in Sources */,
 				06DA1D83258C944100AD2BD1 /* HomeView.swift in Sources */,
 				06DA1D88258CA83400AD2BD1 /* Extension+UIView.swift in Sources */,
+				0630AADD259D520600DF7667 /* Event.swift in Sources */,
+				0630AAD8259D50EE00DF7667 /* NetworkManager.swift in Sources */,
 				06DA1D6D258C039C00AD2BD1 /* AppDelegate.swift in Sources */,
 				0630AACF259D2BDF00DF7667 /* EventViewController.swift in Sources */,
 				06F6E193258E078B00CD48CC /* EventCell.swift in Sources */,
+				0630AB0025A0540D00DF7667 /* AlphaLayerView.swift in Sources */,
 				06DA1D6F258C039C00AD2BD1 /* SceneDelegate.swift in Sources */,
 				0630AACB25900C4600DF7667 /* Extension+UIColor.swift in Sources */,
+				0630AAE1259DD02700DF7667 /* Venue.swift in Sources */,
 				0630AAD3259D2BEE00DF7667 /* EventView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -362,6 +463,7 @@
 		};
 		06DA1D7E258C039D00AD2BD1 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 42BAF41AD3D426CD88432E19 /* Pods-Fetch Rewards.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -380,6 +482,7 @@
 		};
 		06DA1D7F258C039D00AD2BD1 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D9E2387A9D22F7D4EA1EE1DC /* Pods-Fetch Rewards.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
