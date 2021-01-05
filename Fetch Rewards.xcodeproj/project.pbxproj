@@ -17,6 +17,7 @@
 		0630ABBC25A1C9DD00DF7667 /* FirebaseLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0630ABBB25A1C9DD00DF7667 /* FirebaseLayer.swift */; };
 		0630ABC025A3FB4000DF7667 /* JSONDecoder+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0630ABBF25A3FB4000DF7667 /* JSONDecoder+Extension.swift */; };
 		0630ABE925A40CC900DF7667 /* EventDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0630ABE825A40CC900DF7667 /* EventDataSource.swift */; };
+		0630ABED25A5318200DF7667 /* SeatGeekAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0630ABEC25A5318200DF7667 /* SeatGeekAPI.swift */; };
 		06DA1D6D258C039C00AD2BD1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06DA1D6C258C039C00AD2BD1 /* AppDelegate.swift */; };
 		06DA1D6F258C039C00AD2BD1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06DA1D6E258C039C00AD2BD1 /* SceneDelegate.swift */; };
 		06DA1D71258C039C00AD2BD1 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06DA1D70258C039C00AD2BD1 /* HomeViewController.swift */; };
@@ -40,6 +41,7 @@
 		0630ABBB25A1C9DD00DF7667 /* FirebaseLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseLayer.swift; sourceTree = "<group>"; };
 		0630ABBF25A3FB4000DF7667 /* JSONDecoder+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "JSONDecoder+Extension.swift"; sourceTree = "<group>"; };
 		0630ABE825A40CC900DF7667 /* EventDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDataSource.swift; sourceTree = "<group>"; };
+		0630ABEC25A5318200DF7667 /* SeatGeekAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeatGeekAPI.swift; sourceTree = "<group>"; };
 		06DA1D69258C039C00AD2BD1 /* Fetch Rewards.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Fetch Rewards.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		06DA1D6C258C039C00AD2BD1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		06DA1D6E258C039C00AD2BD1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -89,6 +91,7 @@
 			isa = PBXGroup;
 			children = (
 				0630ABB825A1906500DF7667 /* APIResult.swift */,
+				0630ABEC25A5318200DF7667 /* SeatGeekAPI.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -325,6 +328,7 @@
 				06DA1D6F258C039C00AD2BD1 /* SceneDelegate.swift in Sources */,
 				0630AACB25900C4600DF7667 /* Extension+UIColor.swift in Sources */,
 				0630AAD3259D2BEE00DF7667 /* EventView.swift in Sources */,
+				0630ABED25A5318200DF7667 /* SeatGeekAPI.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -471,6 +475,7 @@
 			baseConfigurationReference = 42BAF41AD3D426CD88432E19 /* Pods-Fetch Rewards.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Z928ALPHEA;
 				INFOPLIST_FILE = "Fetch Rewards/Info.plist";
@@ -480,6 +485,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.edvinlellhame.Fetch-Rewards";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -490,6 +496,7 @@
 			baseConfigurationReference = D9E2387A9D22F7D4EA1EE1DC /* Pods-Fetch Rewards.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Z928ALPHEA;
 				INFOPLIST_FILE = "Fetch Rewards/Info.plist";
@@ -499,6 +506,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.edvinlellhame.Fetch-Rewards";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

@@ -11,20 +11,14 @@ import CoreLocation
 import Firebase
 
 
-// seatgeek secret = 801c9169205e9ba40561e32bc8fe725877f4885d40056ad58cb48672edb3dece
-// seatgeek clientid = NzU4MDk0M3wxNjA4MjQ5MDY0LjU2Mjg0NDM
 
 class HomeViewController: UIViewController {
-    
-    
-    
     // MARK: Properties
     weak var homeView: HomeView! { return self.view as? HomeView }
     private let locationManager = CLLocationManager()
     private let dataSource = EventDataSource()
+    var isComingFromSearch = false
     
-    private var year: Int = 0
-    private var month: Int = 0
     
     // MARK: View Life Cycle
     override func viewDidLoad() {
@@ -38,19 +32,19 @@ class HomeViewController: UIViewController {
         homeView.eventTableView.delegate = self
         homeView.eventTableView.dataSource = dataSource
         dataSource.tableView = homeView.eventTableView
-        
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
-        reloadData()
-        dataSource.fetch("https://api.seatgeek.com/2/events?client_id=NzU4MDk0M3wxNjA4MjQ5MDY0LjU2Mjg0NDM&per_page=100")
+        if isComingFromSearch == false {
+            reloadData()
+            dataSource.fetch("https://api.seatgeek.com/2/events?client_id=\(SeatGeekAPI.clientID)&per_page=100")
+            isComingFromSearch = false
+        }
     }
     
+    // MARK: Helper Functions
     private func reloadData() {
-        
         dataSource.dataChanged = { [weak self] in
             self?.dataSource.tableView?.reloadData()
         }
@@ -59,6 +53,7 @@ class HomeViewController: UIViewController {
     
 }
 
+// MARK: TableViewDelegate
 extension HomeViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 500
@@ -74,24 +69,27 @@ extension HomeViewController: UITableViewDelegate {
     }
 }
 
+// MARK: SearchBarDelegate
 extension HomeViewController: UISearchBarDelegate {
-    private func clearSearchBar(searchBar: UISearchBar) {
+    private func clearSearchBar(searchBar: UISearchBar, fetchData: Bool) {
         searchBar.text = ""
         searchBar.endEditing(true)
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        clearSearchBar(searchBar: searchBar)
+        clearSearchBar(searchBar: searchBar, fetchData: false)
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         guard let searchText = searchBar.text else { return }
         let text = searchText.replacingOccurrences(of: " ", with: "+")
         
-        dataSource.fetch("https://api.seatgeek.com/2/events?client_id=NzU4MDk0M3wxNjA4MjQ5MDY0LjU2Mjg0NDM&per_page=100&q=\(text)")
+        dataSource.fetch("https://api.seatgeek.com/2/events?client_id=\(SeatGeekAPI.clientID)&per_page=100&q=\(text)")
         reloadData()
         
-        clearSearchBar(searchBar: searchBar)
+        clearSearchBar(searchBar: searchBar, fetchData: true)
+        
+        isComingFromSearch = true
     }
 }
 

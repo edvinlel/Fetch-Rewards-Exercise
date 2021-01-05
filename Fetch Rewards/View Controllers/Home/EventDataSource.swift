@@ -31,10 +31,12 @@ class EventDataSource: NSObject, UITableViewDataSource, EventCellDelegate {
             if isLiked {
                 FirebaseLayer.remove(event: event) {
                     button.setBackgroundImage(UIImage(named: "like"), for: .normal)
+//                    self.dataChanged?()
                 }
             } else {
                 FirebaseLayer.add(event: event) {
                     button.setBackgroundImage(UIImage(named: "liked"), for: .normal)
+//                    self.dataChanged?()
                 }
             }
             
