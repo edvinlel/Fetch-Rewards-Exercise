@@ -40,8 +40,6 @@ class HomeViewController: UIViewController {
         dataSource.tableView = homeView.eventTableView
         
         
-//        reloadData()
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -54,9 +52,7 @@ class HomeViewController: UIViewController {
     private func reloadData() {
         
         dataSource.dataChanged = { [weak self] in
-            
             self?.dataSource.tableView?.reloadData()
-            
         }
     }
 
@@ -79,16 +75,24 @@ extension HomeViewController: UITableViewDelegate {
 }
 
 extension HomeViewController: UISearchBarDelegate {
-    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
-        
-    }
-    
-    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+    private func clearSearchBar(searchBar: UISearchBar) {
         searchBar.text = ""
         searchBar.endEditing(true)
     }
     
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        clearSearchBar(searchBar: searchBar)
+    }
     
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        guard let searchText = searchBar.text else { return }
+        let text = searchText.replacingOccurrences(of: " ", with: "+")
+        
+        dataSource.fetch("https://api.seatgeek.com/2/events?client_id=NzU4MDk0M3wxNjA4MjQ5MDY0LjU2Mjg0NDM&per_page=100&q=\(text)")
+        reloadData()
+        
+        clearSearchBar(searchBar: searchBar)
+    }
 }
 
 
