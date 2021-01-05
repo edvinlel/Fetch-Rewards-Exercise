@@ -36,8 +36,6 @@ class EventView: UIView {
         return label
     }()
     
-    
-    
     let timeLabel: UILabel = {
         let label = UILabel()
         label.textColor = .white
@@ -50,10 +48,8 @@ class EventView: UIView {
         let label = UILabel()
         label.textColor = .white
         label.text = "Sippin on Gin N Juice Tour"
-        label.font = UIFont(name: "AvenirNext-Heavy", size: 50)
-        label.numberOfLines = 5
-        label.minimumScaleFactor = 0.1
-        label.adjustsFontSizeToFitWidth = true
+        label.font = UIFont(name: "AvenirNext-Heavy", size: 40)
+        label.numberOfLines = 0
         return label
     }()
     
@@ -63,6 +59,9 @@ class EventView: UIView {
         label.textColor = UIColor(red: 223.0/255.0, green: 223.0/255.0, blue: 223.0/255.0, alpha: 1)
         label.text = "Snoop Dogg"
         label.font = UIFont(name: "AvenirNext-Bold", size: 25)
+        label.numberOfLines = 0
+        label.minimumScaleFactor = 0.1
+        label.adjustsFontSizeToFitWidth = true
         return label
     }()
     
@@ -97,6 +96,10 @@ class EventView: UIView {
         label.textColor = .white
         label.text = "Spanos Center"
         label.font = UIFont(name: "AvenirNext-Bold", size: 20)
+        label.numberOfLines = 0
+        label.minimumScaleFactor = 0.1
+        label.adjustsFontSizeToFitWidth = true
+        label.isUserInteractionEnabled = true
         return label
     }()
     
@@ -105,6 +108,9 @@ class EventView: UIView {
         label.textColor = .white
         label.text = "301 Pacific Ave, Stockton, CA"
         label.font = UIFont(name: "AvenirNext-DemiBold", size: 16)
+        label.numberOfLines = 0
+        label.minimumScaleFactor = 0.1
+        label.adjustsFontSizeToFitWidth = true
         return label
     }()
     
@@ -160,6 +166,24 @@ class EventView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    func setEvent(event: Event) {
+        titleLabel.text = event.title
+        performerLabel.text = event.performers[0].name
+        backgroundImageView.kf.setImage(with: URL(string: event.performers[0].image))
+        dateLabel.text = event.datetimeLocal
+        venueNameLabel.text = event.venue.name
+        venueAddressLabel.text = "\(event.venue.address) \(event.venue.displayLocation)"
+        FirebaseLayer.isEventLiked(event: event) { (isLiked) in
+            if isLiked {
+                self.likeButton.setBackgroundImage(UIImage(named: "liked"), for: .normal)
+            } else {
+                self.likeButton.setBackgroundImage(UIImage(named: "like"), for: .normal)
+            }
+        }
+        guard let date = Event.convert(date: event.datetimeLocal) else { return }
+        dateLabel.text = "\(Event.month(by: date.month)) \(date.day), \(date.year)"
+    }
+    
     // MARK: Constraints
     private func setConstraints() {
         /// Background ImageView
@@ -189,19 +213,20 @@ class EventView: UIView {
         
         
         
-        /// Title Label
-        NSLayoutConstraint.activate([
-            titleLabel.topAnchor.constraint(equalTo: backButton.bottomAnchor, constant: 20),
-//            titleLabel.centerYAnchor.constraint(equalTo: backgroundImageView.centerYAnchor, constant: -90),
-            titleLabel.leftAnchor.constraint(equalTo: backgroundImageView.leftAnchor, constant: 20),
-            titleLabel.rightAnchor.constraint(equalTo: backgroundImageView.centerXAnchor, constant: 60)
-        ])
+        
         
         /// Performer Label
         NSLayoutConstraint.activate([
-            performerLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 0),
+            performerLabel.bottomAnchor.constraint(equalTo: dateImageView.topAnchor, constant: -60),
             performerLabel.leftAnchor.constraint(equalTo: backgroundImageView.leftAnchor, constant: 20),
             performerLabel.rightAnchor.constraint(equalTo: backgroundImageView.rightAnchor, constant: -20)
+        ])
+        
+        /// Title Label
+        NSLayoutConstraint.activate([
+            titleLabel.bottomAnchor.constraint(equalTo: performerLabel.topAnchor, constant: 0),
+            titleLabel.leftAnchor.constraint(equalTo: backgroundImageView.leftAnchor, constant: 20),
+            titleLabel.rightAnchor.constraint(equalTo: backgroundImageView.centerXAnchor, constant: 60)
         ])
         
         /// Like Button
@@ -214,7 +239,7 @@ class EventView: UIView {
         
         /// Date ImageView
         NSLayoutConstraint.activate([
-            dateImageView.topAnchor.constraint(equalTo: performerLabel.bottomAnchor, constant: 100),
+            dateImageView.bottomAnchor.constraint(equalTo: mapImageView.topAnchor, constant: -40),
             dateImageView.leftAnchor.constraint(equalTo: performerLabel.leftAnchor, constant: 0),
             dateImageView.widthAnchor.constraint(equalToConstant: 72),
             dateImageView.heightAnchor.constraint(equalToConstant: 66)
@@ -222,7 +247,7 @@ class EventView: UIView {
         
         /// Date Separator
         NSLayoutConstraint.activate([
-            dateSeparator.leftAnchor.constraint(equalTo: dateImageView.rightAnchor, constant: 50),
+            dateSeparator.leftAnchor.constraint(equalTo: dateImageView.rightAnchor, constant: 20),
             dateSeparator.centerYAnchor.constraint(equalTo: dateImageView.centerYAnchor, constant: 0),
             dateSeparator.widthAnchor.constraint(equalToConstant: 1),
             dateSeparator.heightAnchor.constraint(equalToConstant: 80)
@@ -244,14 +269,14 @@ class EventView: UIView {
         
         /// Map ImageView
         NSLayoutConstraint.activate([
-            mapImageView.topAnchor.constraint(equalTo: dateImageView.bottomAnchor, constant: 40),
+            mapImageView.bottomAnchor.constraint(equalTo: buyTicketsButton.topAnchor, constant: -40),
             mapImageView.leftAnchor.constraint(equalTo: performerLabel.leftAnchor, constant: 0),
             mapImageView.widthAnchor.constraint(equalToConstant: 72),
             mapImageView.heightAnchor.constraint(equalToConstant: 66)
         ])
         
         NSLayoutConstraint.activate([
-            mapSeparator.leftAnchor.constraint(equalTo: mapImageView.rightAnchor, constant: 50),
+            mapSeparator.leftAnchor.constraint(equalTo: mapImageView.rightAnchor, constant: 20),
             mapSeparator.centerYAnchor.constraint(equalTo: mapImageView.centerYAnchor, constant: 0),
             mapSeparator.widthAnchor.constraint(equalToConstant: 1),
             mapSeparator.heightAnchor.constraint(equalToConstant: 80)
@@ -277,13 +302,16 @@ class EventView: UIView {
             buyTicketsButton.widthAnchor.constraint(equalToConstant: 180),
             buyTicketsButton.heightAnchor.constraint(equalToConstant: 60),
             buyTicketsButton.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -10),
-            buyTicketsButton.rightAnchor.constraint(equalTo: backgroundImageView.rightAnchor, constant: -15)
+//            buyTicketsButton.rightAnchor.constraint(equalTo: backgroundImageView.rightAnchor, constant: -15)
+            buyTicketsButton.centerXAnchor.constraint(equalTo: backgroundImageView.centerXAnchor, constant: 0)
         ])
         
         /// Share Button
         NSLayoutConstraint.activate([
-            shareButton.centerYAnchor.constraint(equalTo: buyTicketsButton.centerYAnchor, constant: 0),
-            shareButton.leftAnchor.constraint(equalTo: backgroundImageView.leftAnchor, constant: 45)
+//            shareButton.centerYAnchor.constraint(equalTo: buyTicketsButton.centerYAnchor, constant: 0),
+//            shareButton.leftAnchor.constraint(equalTo: backgroundImageView.leftAnchor, constant: 45)
+            shareButton.topAnchor.constraint(equalTo: likeButton.topAnchor, constant: -8),
+            shareButton.rightAnchor.constraint(equalTo: likeButton.leftAnchor, constant: -25)
         ])
     }
 }

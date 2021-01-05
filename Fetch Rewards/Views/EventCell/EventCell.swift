@@ -7,15 +7,17 @@
 //
 
 import UIKit
+import Kingfisher
+import Firebase
 
-protocol EventCellDelegate {
+protocol EventCellDelegate: class {
     func eventCell(_ cell: UITableViewCell, button: UIButton)
 }
 
 class EventCell: UITableViewCell {
     
     static let reuseIdentifier = "EventCell"
-    var delegate: EventCellDelegate?
+    weak var delegate: EventCellDelegate?
     
     // MARK: Properties
     let mainBackground: UIView = {
@@ -27,7 +29,7 @@ class EventCell: UITableViewCell {
     
     let eventBackgroundImageView: UIView = {
         let view = UIView()
-        view.backgroundColor = .red
+        view.backgroundColor = .clear
         view.layer.masksToBounds = true
         view.layer.cornerRadius = 15
         return view
@@ -60,7 +62,7 @@ class EventCell: UITableViewCell {
         return label
     }()
     
-    let dateLabel: UILabel = {
+    let dayLabel: UILabel = {
         let label = UILabel()
         label.text = "21"
         label.font = UIFont.boldSystemFont(ofSize: 24)
@@ -134,7 +136,7 @@ class EventCell: UITableViewCell {
         ])
         
         dateContainerView.setSubviewsForAutoLayout([
-            dateLabel,
+            dayLabel,
             monthLabel
         ])
         
@@ -146,6 +148,7 @@ class EventCell: UITableViewCell {
         
     }
     
+    // MARK: Initializers
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -154,9 +157,26 @@ class EventCell: UITableViewCell {
         delegate?.eventCell(self, button: sender)
     }
     
+    // MARK: Helper Methods
+    func setCell(event: Event) {
+        titleLabel.text = event.title
+        performerLabel.text = event.performers[0].name
+        eventLocation.text = event.venue.displayLocation
+        eventImageView.kf.setImage(with: URL(string: event.performers[0].image))
+        FirebaseLayer.isEventLiked(event: event) { (isLiked) in
+            if isLiked {
+                self.likeButton.setBackgroundImage(UIImage(named: "liked"), for: .normal)
+            } else {
+                self.likeButton.setBackgroundImage(UIImage(named: "like"), for: .normal)
+            }
+        }
+        guard let date = Event.convert(date: event.datetimeLocal) else { return }
+        dayLabel.text = "\(date.day)"
+        monthLabel.text = Event.month(by: date.month)
+    }
+    
     // MARK: Constraints
     private func setConstraints() {
-        
         /// Container View
         NSLayoutConstraint.activate([
             mainBackground.topAnchor.constraint(equalTo: topAnchor, constant: 20),
@@ -198,14 +218,14 @@ class EventCell: UITableViewCell {
         
         /// Date Label
         NSLayoutConstraint.activate([
-            dateLabel.centerXAnchor.constraint(equalTo: dateContainerView.centerXAnchor, constant: 0),
-            dateLabel.centerYAnchor.constraint(equalTo: dateContainerView.centerYAnchor, constant: -5)
+            dayLabel.centerXAnchor.constraint(equalTo: dateContainerView.centerXAnchor, constant: 0),
+            dayLabel.centerYAnchor.constraint(equalTo: dateContainerView.centerYAnchor, constant: -5)
         ])
         
         /// Month Label
         NSLayoutConstraint.activate([
             monthLabel.centerXAnchor.constraint(equalTo: dateContainerView.centerXAnchor, constant: 0),
-            monthLabel.topAnchor.constraint(equalTo: dateLabel.bottomAnchor, constant: -5)
+            monthLabel.topAnchor.constraint(equalTo: dayLabel.bottomAnchor, constant: -5)
         ])
         
         /// Event Title

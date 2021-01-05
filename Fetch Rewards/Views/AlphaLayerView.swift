@@ -13,7 +13,7 @@ class AlphaLayerView: UIView {
     let alphaView: UIView = {
         let view = UIView()
         view.backgroundColor = .black
-        view.alpha = 0.2
+        view.alpha = 0.4
         return view
     }()
     

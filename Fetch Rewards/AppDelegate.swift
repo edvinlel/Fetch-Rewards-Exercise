@@ -23,9 +23,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             guard let user = result?.user else { return }
             let isAnonymous = user.isAnonymous
             let uid = user.uid
-            
-            print(isAnonymous)
-            print(uid)
         }
         
         return true
